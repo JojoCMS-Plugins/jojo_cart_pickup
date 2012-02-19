@@ -1,0 +1,1 @@
+Allows orders to be placed with payment made upon pickup.
