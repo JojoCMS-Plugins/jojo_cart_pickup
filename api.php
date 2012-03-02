@@ -23,6 +23,8 @@ if (class_exists(Jojo_Cart_Class)) {
     call_user_func(array(Jojo_Cart_Class, 'setPaymentHandler'), 'jojo_plugin_jojo_cart_pickup');
 }
 
+Jojo::addFilter('jojo_cart_process:pending_template', 'jojo_cart_process_pending_template', 'jojo_cart_pickup');
+
 $_options[] = array(
   'id'          => 'cart_pickup_instructions',
   'category'    => 'Cart',

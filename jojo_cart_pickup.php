@@ -51,4 +51,11 @@ class JOJO_Plugin_jojo_cart_pickup extends JOJO_Plugin
                     'message' => Jojo::getOption('cart_pickup_instructions', 'Please make payment when collecting your order.')
                     );
     }
+    
+    function jojo_cart_process_pending_template($pending_template)
+    {
+        $cart = call_user_func(array(Jojo_Cart_Class, 'getCart'));
+        if ($cart->handler == 'jojo_plugin_jojo_cart_pickup') $pending_template['customer'] = 'jojo_cart_customer_email_pickup.tpl';
+        return $pending_template;
+    }
 }
